@@ -25,4 +25,12 @@
 			<property name="collabEmail"/>
 			<property name="NoteID"/>
 	</class>
+	<class name="UserModel" table="UserTable" dynamic-update="true">
+		<cache usage="read-write" />
+		<id name="UserID" column="UserID" type="int">
+			<generator class="native" />
+		</id>
+		<property name="Email" />
+		<property name="Password" />
+	</class>
 </hibernate-mapping>

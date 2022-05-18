@@ -1,4 +1,4 @@
-﻿USE[DbEmployee]    
+USE[DbEmployee]    
 GO    
 
 CREATE TABLE Notes
@@ -26,3 +26,20 @@ SET ANSI_PADDING OFF
 GO  
 
 drop table Notes
+
+
+select * from NoteTable
+
+create table Collab
+(collabID int identity(10,1) NOT NULL PRIMARY KEY,
+collabEmail varchar(50),
+NoteID  int FOREIGN KEY REFERENCES NoteTable(NoteID))
+
+select * from Collab
+
+
+  create table UserTable
+  (
+   UserID int identity(1,1) NOT NULL PRIMARY KEY,
+   Email varchar(50),
+   password varchar(50))

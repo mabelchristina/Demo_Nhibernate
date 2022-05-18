@@ -19,7 +19,7 @@ namespace CRUD_App.Models
             get;
             set;
         }
-
+       
         public virtual int NoteID
         {
             get;

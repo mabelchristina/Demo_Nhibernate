@@ -13,17 +13,44 @@ namespace CRUD_App.Controllers
     public class NotesController : ApiController
     {
         //NHibernate Session  
-         
+
         ISession session = OpenSessionNHibernateforNote.OpenSession();
-       //Get all Notes
+        //Get all Notes
         public List<NotesModel> GetListNotes()
         {
             List<NotesModel> Note = session.Query<NotesModel>().ToList();
             return Note;
         }
         //Add New Note  
+        [Authorize]
         [HttpPost]
         public HttpResponseMessage AddNewNote(NotesModel Note)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (ITransaction transaction = session.BeginTransaction())
+                    {
+                        session.Save(Note);
+                        transaction.Commit();
+                    }
+                    return Request.CreateResponse(HttpStatusCode.OK, Note);
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error !");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+        //Add New Note
+        [Route("xlogin")]
+        [HttpPost]
+        public HttpResponseMessage AddNew(NotesModel Note)
         {
             try
             {

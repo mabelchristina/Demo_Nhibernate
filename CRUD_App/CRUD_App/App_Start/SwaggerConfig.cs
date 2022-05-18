@@ -33,7 +33,7 @@ namespace CRUD_App
                         // additional fields by chaining methods off SingleApiVersion.
                         //
                         c.SingleApiVersion("v1", "CRUD_App");
-
+                       
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be
                         // included in the docs for a given API version. Like "SingleApiVersion", each call to "Version"
@@ -53,15 +53,15 @@ namespace CRUD_App
                         // at the document or operation level to indicate which schemes are required for an operation. To do this,
                         // you'll need to implement a custom IDocumentFilter and/or IOperationFilter to set these properties
                         // according to your specific authorization implementation
-                        //
+                        ////
                         //c.BasicAuth("basic")
                         //    .Description("Basic HTTP Authentication");
-                        //
+                        ////
                         //c.ApiKey("apiKey")
-                        //    .Description("API Key Authentication")
-                        //    .Name("apiKey")
+                        //   .Description("API Key Authentication")
+                        //   .Name("apiKey")
                         //    .In("header");
-                        //
+                        ////
                         //c.OAuth2("oauth2")
                         //    .Description("OAuth2 Implicit Grant")
                         //    .Flow("implicit")
@@ -73,14 +73,14 @@ namespace CRUD_App
                         //        scopes.Add("write", "Write access to protected resources");
                         //    });
 
-                        // Set this flag to omit descriptions for any actions decorated with the Obsolete attribute
+                        //// Set this flag to omit descriptions for any actions decorated with the Obsolete attribute
                         //c.IgnoreObsoleteActions();
 
-                        // Each operation be assigned one or more tags which are then used by consumers for various reasons.
-                        // For example, the swagger-ui groups operations according to the first tag of each operation.
-                        // By default, this will be controller name but you can use the "GroupActionsBy" option to
-                        // override with any value.
-                        //
+                        //// Each operation be assigned one or more tags which are then used by consumers for various reasons.
+                        //// For example, the swagger-ui groups operations according to the first tag of each operation.
+                        //// By default, this will be controller name but you can use the "GroupActionsBy" option to
+                        //// override with any value.
+                        ////
                         //c.GroupActionsBy(apiDesc => apiDesc.HttpMethod.ToString());
 
                         // You can also specify a custom sort order for groups (as defined by "GroupActionsBy") to dictate
@@ -209,9 +209,9 @@ namespace CRUD_App
                         //
                         //c.EnableDiscoveryUrlSelector();
 
-                        // If your API supports the OAuth2 Implicit flow, and you've described it correctly, according to
-                        // the Swagger 2.0 specification, you can enable UI support as shown below.
-                        //
+                        //// If your API supports the OAuth2 Implicit flow, and you've described it correctly, according to
+                        //// the Swagger 2.0 specification, you can enable UI support as shown below.
+                        ////
                         //c.EnableOAuth2Support("test-client-id", "test-realm", "Swagger UI");
                     });
         }
